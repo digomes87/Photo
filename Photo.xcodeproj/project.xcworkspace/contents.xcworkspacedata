@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Photo/testeTableViewController.swift">
+   </FileRef>
+   <FileRef
       location = "self:Photo.xcodeproj">
    </FileRef>
 </Workspace>

@@ -10,9 +10,14 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    @IBOutlet var detailsLabel: UILabel!
+    
+    var currentPhoto: IPhoto?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        detailsLabel.text = currentPhoto!.notes
         // Do any additional setup after loading the view.
     }
 

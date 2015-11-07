@@ -9,10 +9,16 @@
 import UIKit
 
 class DisplayViewController: UIViewController {
-
+   
+    @IBOutlet var displayView: UIImageView!
+    var currentPhoto : IPhoto?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let image = UIImage(named: currentPhoto!.fileName)
+        displayView.image = image
+        
         // Do any additional setup after loading the view.
     }
 
@@ -22,14 +28,18 @@ class DisplayViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
+        
+        let thirdScene = segue.destinationViewController as! InfoViewController
+            thirdScene.currentPhoto = currentPhoto
+        
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

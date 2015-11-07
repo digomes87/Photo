@@ -10,9 +10,28 @@ import UIKit
 
 class PhotoTableViewController: UITableViewController {
 
+    var photos = [IPhoto]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        var nphoto = IPhoto(name: "Foto 1" ,fileName:"um",notes:"foto numero um")
+        photos.append(nphoto)
+        
+        nphoto = IPhoto(name: "Foto 2" ,fileName:"dois",notes:"foto numero dois")
+        photos.append(nphoto)
+        
+        nphoto = IPhoto(name: "Foto 3" ,fileName:"tres",notes:"foto numero tres")
+        photos.append(nphoto)
+        
+        nphoto = IPhoto(name: "Foto 4" ,fileName:"quatro",notes:"foto numero quatro")
+        photos.append(nphoto)
+        
+        nphoto = IPhoto(name: "Foto 5" ,fileName:"cinco",notes:"foto numero cinco")
+        photos.append(nphoto)
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,23 +48,24 @@ class PhotoTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return photos.count
     }
 
-    /*
+ 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("photoCell", forIndexPath: indexPath)
 
-        // Configure the cell...
+        let currentPhoto = photos[indexPath.row]
+        cell.textLabel?.text = currentPhoto.fileName
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -81,15 +101,19 @@ class PhotoTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
+        
+        var secondScene = segue.destinationViewController as! DisplayViewController
+            if let indexPath =
+        
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

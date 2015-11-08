@@ -58,9 +58,11 @@ class PhotoTableViewController: UITableViewController {
 
  
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("photoCell", forIndexPath: indexPath)
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("photoCell")! //, forIndexPath: indexPath
 
         let currentPhoto = photos[indexPath.row]
+        
         cell.textLabel?.text = currentPhoto.fileName
 
         return cell
@@ -110,7 +112,10 @@ class PhotoTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         
         var secondScene = segue.destinationViewController as! DisplayViewController
-            if let indexPath =
+        
+        //if let secondScene  = tableView.indexPathsForSelectedRows(){
+            //let selectPhoto = photos[indexPath.row]
+        //}
         
         // Pass the selected object to the new view controller.
     }

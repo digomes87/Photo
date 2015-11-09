@@ -59,7 +59,7 @@ class PhotoTableViewController: UITableViewController {
  
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("photoCell")! //, forIndexPath: indexPath
+        let cell = tableView.dequeueReusableCellWithIdentifier("photoCell", forIndexPath: indexPath) as UITableViewCell
 
         let currentPhoto = photos[indexPath.row]
         
@@ -109,15 +109,14 @@ class PhotoTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        
-        var secondScene = segue.destinationViewController as! DisplayViewController
-        
-        //if let secondScene  = tableView.indexPathsForSelectedRows(){
-            //let selectPhoto = photos[indexPath.row]
-        //}
-        
+        // Get the new view controller using [segue destinationViewController].
+        let secondScene = segue.destinationViewController as! DisplayViewController
         // Pass the selected object to the new view controller.
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            let selectedPhoto = photos[indexPath.row]
+            secondScene.currentPhoto = selectedPhoto
+        }
+        
     }
     
 

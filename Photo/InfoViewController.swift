@@ -14,6 +14,9 @@ class InfoViewController: UIViewController {
     
     var currentPhoto: IPhoto?
     
+    @IBAction func dismiss(sender: AnyObject) {
+          self.dismissViewControllerAnimated(true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
